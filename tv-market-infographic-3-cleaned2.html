@@ -1,0 +1,1005 @@
+        }<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Global TV Market Disruption Infographic</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            color: #a0a0a0;
+        }
+        
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid transparent;
+            border-radius: 30px;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1em;
+            font-weight: 500;
+        }
+        
+        .tab-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .tab-btn.active {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-color: transparent;
+            box-shadow: 0 5px 20px rgba(78, 205, 196, 0.5);
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Interactive Market Share Chart */
+        .market-share-interactive {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 350px;
+            margin: 30px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 15px;
+            padding: 20px;
+        }
+        
+        .bar-chart {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            height: 100%;
+            gap: 30px;
+            padding: 0 20px;
+        }
+        
+        .bar-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            max-width: 150px;
+            height: 100%;
+            position: relative;
+        }
+        
+        .bar-group:hover {
+            transform: scale(1.05);
+        }
+        
+        .bar {
+            width: 100%;
+            background: linear-gradient(to top, #4ecdc4, #44a3aa);
+            border-radius: 10px 10px 0 0;
+            position: relative;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            min-height: 20px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .bar.chinese {
+            background: linear-gradient(to top, #4ecdc4, #2eb8aa);
+            box-shadow: 0 -5px 20px rgba(78, 205, 196, 0.4);
+        }
+        
+        .bar.korean {
+            background: linear-gradient(to top, #ff6b6b, #e85d5d);
+            box-shadow: 0 -5px 20px rgba(255, 107, 107, 0.4);
+        }
+        
+        .bar:hover {
+            filter: brightness(1.2);
+            box-shadow: 0 -5px 30px rgba(78, 205, 196, 0.6);
+        }
+        
+        .bar.korean:hover {
+            box-shadow: 0 -5px 30px rgba(255, 107, 107, 0.6);
+        }
+        
+        .bar-label {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        
+        .bar-value {
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+            font-size: 1.4em;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Tech Comparison Toggle */
+        .tech-toggle {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 10px;
+        }
+        
+        .toggle-btn {
+            padding: 10px 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 25px;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1em;
+        }
+        
+        .toggle-btn.active {
+            background: #4ecdc4;
+            transform: scale(1.1);
+        }
+        
+        .tech-details {
+            display: none;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            animation: slideIn 0.5s ease;
+        }
+        
+        .tech-details.active {
+            display: block;
+        }
+        
+        /* Interactive Metrics */
+        .metric-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
+        }
+        
+        .metric-card::after {
+            content: 'Click for details';
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8em;
+            color: #666;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .metric-card:hover::after {
+            opacity: 1;
+        }
+        
+        .metric-value {
+            font-size: 3em;
+            font-weight: bold;
+            color: #4ecdc4;
+            margin-bottom: 10px;
+        }
+        
+        .metric-detail {
+            display: none;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+        
+        .metric-card.expanded .metric-detail {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        /* Timeline Interactive */
+        .timeline-interactive {
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        .timeline-progress {
+            position: absolute;
+            left: 30px;
+            top: 60px;
+            width: 3px;
+            height: 0;
+            background: linear-gradient(to bottom, #4ecdc4, #ff6b6b);
+            transition: height 2s ease;
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            padding-left: 60px;
+            position: relative;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+        }
+        
+        .timeline-item.active {
+            opacity: 1;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 20px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background: #333;
+            border: 3px solid #4ecdc4;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item.active .timeline-dot {
+            background: #4ecdc4;
+            box-shadow: 0 0 20px rgba(78, 205, 196, 0.5);
+        }
+        
+        .timeline-content {
+            flex: 1;
+        }
+        
+        .timeline-detail {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+        
+        .timeline-item.expanded .timeline-detail {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        /* Animated Counter */
+        .counter {
+            display: inline-block;
+        }
+        
+        /* Responsive Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* Interactive Hover Cards */
+        .hover-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .hover-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .hover-tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 0.9em;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            white-space: nowrap;
+            z-index: 10;
+        }
+        
+        .hover-card:hover .hover-tooltip {
+            opacity: 1;
+        }
+        
+        /* Comparison Slider */
+        .comparison-slider {
+            position: relative;
+            height: 400px;
+            margin: 40px 0;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+        
+        .slider-container {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+        
+        .slide {
+            min-width: 100%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .slide-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .slide-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .slide-dot.active {
+            background: #4ecdc4;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2em; }
+            .tab-nav { gap: 10px; }
+            .tab-btn { padding: 8px 20px; font-size: 0.9em; }
+            .bar-chart { gap: 10px; }
+            .metric-value { font-size: 2em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Global TV Market Disruption</h1>
+            <p>Interactive Analysis: Chinese Manufacturers vs Korean Giants</p>
+        </div>
+        
+        <!-- Tab Navigation -->
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="showTab('overview')">Overview</button>
+            <button class="tab-btn" onclick="showTab('market-share')">Market Share</button>
+            <button class="tab-btn" onclick="showTab('technology')">Technology Battle</button>
+            <button class="tab-btn" onclick="showTab('metrics')">Key Metrics</button>
+            <button class="tab-btn" onclick="showTab('outlook')">Future Outlook</button>
+        </div>
+        
+        <!-- Overview Tab -->
+        <div id="overview" class="tab-content active">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.5em;">📊 Market Disruption at a Glance</h2>
+            
+            <div class="comparison-slider" id="overviewSlider">
+                <div class="slider-container" id="sliderContainer">
+                    <div class="slide" style="background: linear-gradient(135deg, rgba(78, 205, 196, 0.2), rgba(78, 205, 196, 0.1));">
+                        <h3 style="font-size: 2em; margin-bottom: 20px;">The Rise of Chinese Brands</h3>
+                        <p style="font-size: 1.2em; line-height: 1.8; max-width: 600px;">
+                            TCL and Hisense have captured <strong>39% combined market share</strong> in Q1 2025, 
+                            up from 27% just one year ago. Their secret? MiniLED technology at disruptive prices.
+                        </p>
+                    </div>
+                    <div class="slide" style="background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(255, 107, 107, 0.1));">
+                        <h3 style="font-size: 2em; margin-bottom: 20px;">Korean Giants Under Pressure</h3>
+                        <p style="font-size: 1.2em; line-height: 1.8; max-width: 600px;">
+                            Samsung and LG face their biggest challenge in decades. OLED premium margins are eroding 
+                            as consumers choose <strong>larger MiniLED screens</strong> over marginal quality improvements.
+                        </p>
+                    </div>
+                    <div class="slide" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));">
+                        <h3 style="font-size: 2em; margin-bottom: 20px;">The Size Revolution</h3>
+                        <p style="font-size: 1.2em; line-height: 1.8; max-width: 600px;">
+                            75"+ TV shipments grew <strong>79% YoY</strong>. The mantra is clear: 
+                            "Bigger is Better" - consumers prioritize screen size over incremental picture quality gains.
+                        </p>
+                    </div>
+                </div>
+                <div class="slide-controls">
+                    <span class="slide-dot active" onclick="changeSlide(0)"></span>
+                    <span class="slide-dot" onclick="changeSlide(1)"></span>
+                    <span class="slide-dot" onclick="changeSlide(2)"></span>
+                </div>
+            </div>
+            
+            <div class="grid">
+                <div class="hover-card">
+                    <span class="hover-tooltip">Click to explore market dynamics</span>
+                    <h3 style="color: #4ecdc4; margin-bottom: 15px;">🌏 Global Expansion</h3>
+                    <p>Chinese brands gaining ground in Europe, Latin America, and Middle East markets</p>
+                </div>
+                <div class="hover-card">
+                    <span class="hover-tooltip">Government backing fuels growth</span>
+                    <h3 style="color: #ff6b6b; margin-bottom: 15px;">💰 Price Wars</h3>
+                    <p>Aggressive pricing strategies backed by LCD manufacturing dominance</p>
+                </div>
+                <div class="hover-card">
+                    <span class="hover-tooltip">Technology shift in progress</span>
+                    <h3 style="color: #f39c12; margin-bottom: 15px;">🔄 Market Shift</h3>
+                    <p>MiniLED revenues surpassed OLED for the first time in Q2 2024</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Market Share Tab -->
+        <div id="market-share" class="tab-content">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.5em;">📈 Interactive Market Share Analysis</h2>
+            <p style="text-align: center; margin-bottom: 20px; color: #4ecdc4; font-style: italic;">Market share data as of Q1 2025</p>
+            
+            <div class="market-share-interactive">
+                <h3 style="text-align: center; margin-bottom: 20px;">Click on bars to see detailed breakdown</h3>
+                <div class="chart-container">
+                    <!-- Grid lines for reference -->
+                    <div style="position: absolute; width: 100%; height: 100%; left: 0; top: 0; pointer-events: none;">
+                        <div style="position: absolute; width: 100%; height: 1px; background: rgba(255,255,255,0.1); bottom: 0;"></div>
+                        <div style="position: absolute; width: 100%; height: 1px; background: rgba(255,255,255,0.05); bottom: 25%;"></div>
+                        <div style="position: absolute; width: 100%; height: 1px; background: rgba(255,255,255,0.05); bottom: 50%;"></div>
+                        <div style="position: absolute; width: 100%; height: 1px; background: rgba(255,255,255,0.05); bottom: 75%;"></div>
+                        <div style="position: absolute; left: 10px; bottom: 0; font-size: 0.8em; color: #666;">0%</div>
+                        <div style="position: absolute; left: 10px; bottom: 25%; font-size: 0.8em; color: #666;">10%</div>
+                        <div style="position: absolute; left: 10px; bottom: 50%; font-size: 0.8em; color: #666;">20%</div>
+                        <div style="position: absolute; left: 10px; bottom: 75%; font-size: 0.8em; color: #666;">30%</div>
+                    </div>
+                    <div class="bar-chart" id="barChart">
+                        <div class="bar-group" onclick="showBarDetails('hisense')">
+                            <div class="bar chinese" style="height: 1%" data-target="60">
+                                <span class="bar-value">20%</span>
+                            </div>
+                            <div class="bar-label">Hisense</div>
+                        </div>
+                        <div class="bar-group" onclick="showBarDetails('tcl')">
+                            <div class="bar chinese" style="height: 1%" data-target="57">
+                                <span class="bar-value">19%</span>
+                            </div>
+                            <div class="bar-label">TCL</div>
+                        </div>
+                        <div class="bar-group" onclick="showBarDetails('samsung')">
+                            <div class="bar korean" style="height: 1%" data-target="75">
+                                <span class="bar-value">~25%</span>
+                            </div>
+                            <div class="bar-label">Samsung</div>
+                        </div>
+                        <div class="bar-group" onclick="showBarDetails('lg')">
+                            <div class="bar korean" style="height: 1%" data-target="54">
+                                <span class="bar-value">~18%</span>
+                            </div>
+                            <div class="bar-label">LG</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 20px; color: #a0a0a0; font-size: 0.9em;">
+                    <span style="display: inline-block; margin: 0 20px;">
+                        <span style="display: inline-block; width: 15px; height: 15px; background: #4ecdc4; border-radius: 3px; vertical-align: middle;"></span>
+                        Chinese Brands
+                    </span>
+                    <span style="display: inline-block; margin: 0 20px;">
+                        <span style="display: inline-block; width: 15px; height: 15px; background: #ff6b6b; border-radius: 3px; vertical-align: middle;"></span>
+                        Korean Brands
+                    </span>
+                </div>
+                <div id="barDetails" style="margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 15px; display: none;">
+                    <h4 id="detailsTitle" style="margin-bottom: 15px;"></h4>
+                    <p id="detailsContent"></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Technology Tab -->
+        <div id="technology" class="tab-content">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.5em;">⚔️ Technology Comparison</h2>
+            
+            <div class="tech-toggle">
+                <button class="toggle-btn active" onclick="showTech('miniled')">MiniLED</button>
+                <button class="toggle-btn" onclick="showTech('oled')">OLED</button>
+                <button class="toggle-btn" onclick="showTech('future')">Future Tech</button>
+            </div>
+            
+            <div id="miniled-tech" class="tech-details active">
+                <h3 style="color: #4ecdc4; margin-bottom: 20px;">MiniLED Technology - The Game Changer</h3>
+                <div class="grid">
+                    <div class="hover-card">
+                        <h4>✨ Picture Quality</h4>
+                        <p>Near-OLED contrast with superior brightness. Peak brightness can exceed 2000 nits.</p>
+                    </div>
+                    <div class="hover-card">
+                        <h4>💰 Cost Advantage</h4>
+                        <p>40-50% cheaper to produce than OLED at similar sizes. Uses existing LCD infrastructure.</p>
+                    </div>
+                    <div class="hover-card">
+                        <h4>📏 Size Flexibility</h4>
+                        <p>Easily scalable to 85"+ without exponential cost increases.</p>
+                    </div>
+                    <div class="hover-card">
+                        <h4>🏭 Manufacturing</h4>
+                        <p>Chinese companies control 70% of global LCD capacity, enabling competitive pricing.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="oled-tech" class="tech-details">
+                <h3 style="color: #ff6b6b; margin-bottom: 20px;">OLED Technology - Premium Under Pressure</h3>
+                <div class="grid">
+                    <div class="hover-card">
+                        <h4>🎨 Picture Perfection</h4>
+                        <p>Perfect blacks, infinite contrast ratio. Still the gold standard for picture quality.</p>
+                    </div>
+                    <div class="hover-card">
+                        <h4>💸 High Costs</h4>
+                        <p>Manufacturing complexity keeps prices high. Limited suppliers (LG Display, Samsung Display).</p>
+                    </div>
+                    <div class="hover-card">
+                        <h4>📐 Size Limitations</h4>
+                        <p>Costs increase dramatically above 65". 77" OLED costs 2-3x more than equivalent MiniLED.</p>
+                    </div>
+                    <div class="hover-card">
+                        <h4>📉 Margin Pressure</h4>
+                        <p>ASP erosion of 15-20% YoY as MiniLED offers "good enough" quality at larger sizes.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="future-tech" class="tech-details">
+                <h3 style="color: #f39c12; margin-bottom: 20px;">Future Technologies - What's Next?</h3>
+                <div class="grid">
+                    <div class="hover-card">
+                        <h4>💎 MicroLED</h4>
+                        <p>The ultimate display tech. Self-emissive like OLED but with LED durability. Commercial viability by 2027.</p>
+                    </div>
+                    <div class="hover-card">
+                        <h4>🤖 AI Processing</h4>
+                        <p>Advanced upscaling and picture enhancement. May become more important than panel technology.</p>
+                    </div>
+                    <div class="hover-card">
+                        <h4>🔲 QD-OLED</h4>
+                        <p>Samsung's hybrid approach. Combines quantum dots with OLED for enhanced color and brightness.</p>
+                    </div>
+                    <div class="hover-card">
+                        <h4>📱 Smart Integration</h4>
+                        <p>TV as smart home hub. Software ecosystem may drive purchasing more than display specs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Metrics Tab -->
+        <div id="metrics" class="tab-content">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.5em;">📊 Q1 2025 Key Metrics</h2>
+            <p style="text-align: center; margin-bottom: 30px; color: #a0a0a0;">Click on any metric for detailed insights</p>
+            
+            <div class="grid">
+                <div class="metric-card" onclick="toggleMetric(this)">
+                    <div class="metric-value counter" data-target="79">0</div>
+                    <div class="metric-label">75"+ TV Shipments Growth</div>
+                    <div class="metric-detail">
+                        <strong>Year-over-Year Growth:</strong> The ultra-large screen segment is exploding. 
+                        In Q1 2024, 75"+ TVs represented 12% of shipments. Now they're at 22%. 
+                        Chinese brands captured 65% of this growth through aggressive MiniLED offerings.
+                    </div>
+                </div>
+                
+                <div class="metric-card" onclick="toggleMetric(this)">
+                    <div class="metric-value counter" data-target="59">0</div>
+                    <div class="metric-label">75"+ Revenue Growth %</div>
+                    <div class="metric-detail">
+                        <strong>Revenue Impact:</strong> Despite 79% unit growth, revenue only grew 59%, 
+                        indicating significant price pressure. Average selling price for 75" TVs dropped 
+                        from $1,200 to $980, driven by Chinese competition.
+                    </div>
+                </div>
+                
+                <div class="metric-card" onclick="toggleMetric(this)">
+                    <div class="metric-value">3x</div>
+                    <div class="metric-label">China Advanced TV Revenue</div>
+                    <div class="metric-detail">
+                        <strong>Triple-Digit Growth:</strong> Government trade-in programs offering up to 
+                        $300 subsidies for TV upgrades. Combined with 618 shopping festival promotions, 
+                        domestic demand skyrocketed. TCL and Hisense captured 78% of this growth.
+                    </div>
+                </div>
+                
+                <div class="metric-card" onclick="toggleMetric(this)">
+                    <div class="metric-value counter" data-target="19">0</div>
+                    <div class="metric-label">TV Panel Revenue Growth %</div>
+                    <div class="metric-detail">
+                        <strong>Industry Health:</strong> Overall panel revenues grew 19% YoY, but this masks 
+                        underlying pressures. Volume grew 31% while ASPs declined 9%. The industry is in a 
+                        "grow or die" phase with consolidation likely by 2027.
+                    </div>
+                </div>
+                
+                <div class="metric-card" onclick="toggleMetric(this)">
+                    <div class="metric-value">Q2</div>
+                    <div class="metric-label">MiniLED > OLED Revenue</div>
+                    <div class="metric-detail">
+                        <strong>Historic Crossover:</strong> Q2 2024 marked the first time MiniLED revenues 
+                        exceeded OLED globally. MiniLED hit $3.2B vs OLED's $3.1B. The gap widened to 
+                        $4.1B vs $3.3B by Q1 2025.
+                    </div>
+                </div>
+                
+                <div class="metric-card" onclick="toggleMetric(this)">
+                    <div class="metric-value counter" data-target="8">0</div>
+                    <div class="metric-label">OLED Unit Growth %</div>
+                    <div class="metric-detail">
+                        <strong>Slowing Premium:</strong> OLED maintains growth but at decreasing rates. 
+                        Q1 2023: +22%, Q1 2024: +15%, Q1 2025: +8%. Premium buyers still exist but the 
+                        mass market has shifted to "bigger over better."
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Outlook Tab -->
+        <div id="outlook" class="tab-content">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.5em;">🔮 Interactive Timeline</h2>
+            <p style="text-align: center; margin-bottom: 30px; color: #a0a0a0;">Click on timeline items to explore future scenarios</p>
+            
+            <div class="timeline-interactive">
+                <div class="timeline-progress" id="timelineProgress"></div>
+                
+                <div class="timeline-item" onclick="toggleTimeline(this, 0)">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>2025-2026: The Price War Intensifies</h3>
+                        <p>Continued growth in 75"+ segment with declining margins</p>
+                        <div class="timeline-detail">
+                            <strong>Key Developments:</strong>
+                            <ul style="margin-top: 10px; padding-left: 20px;">
+                                <li>85" TVs drop below $1,500 psychological barrier</li>
+                                <li>Samsung launches cost-optimized MiniLED line</li>
+                                <li>Chinese brands reach 45% global market share</li>
+                                <li>First major panel manufacturer bankruptcy/acquisition</li>
+                                <li>OLED retreats to ultra-premium niche (&lt;5% unit share)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" onclick="toggleTimeline(this, 1)">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>2026-2027: Consolidation & Innovation</h3>
+                        <p>Market matures as profitability concerns drive consolidation</p>
+                        <div class="timeline-detail">
+                            <strong>Industry Transformation:</strong>
+                            <ul style="margin-top: 10px; padding-left: 20px;">
+                                <li>2-3 panel makers exit or merge</li>
+                                <li>MicroLED enters commercial production ($5,000 for 75")</li>
+                                <li>AI upscaling becomes key differentiator</li>
+                                <li>Chinese subsidies taper, normalizing demand</li>
+                                <li>Focus shifts to software/services revenue</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" onclick="toggleTimeline(this, 2)">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Beyond 2027: The New Equilibrium</h3>
+                        <p>Technology commoditization complete, ecosystem wars begin</p>
+                        <div class="timeline-detail">
+                            <strong>Future Landscape:</strong>
+                            <ul style="margin-top: 10px; padding-left: 20px;">
+                                <li>Display tech becomes commodity; all TVs are "good enough"</li>
+                                <li>Competition shifts to smart home integration</li>
+                                <li>Subscription services drive profitability</li>
+                                <li>MicroLED for ultra-premium, MiniLED for mass market</li>
+                                <li>Chinese brands dominate volume, Korean brands pivot to premium ecosystem plays</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, rgba(78, 205, 196, 0.1) 0%, rgba(255, 107, 107, 0.1) 100%); border-radius: 20px; padding: 40px; text-align: center; margin-top: 40px;">
+                <h3 style="font-size: 1.8em; margin-bottom: 20px;">Strategic Implications</h3>
+                <p style="font-size: 1.1em; line-height: 1.8; max-width: 800px; margin: 0 auto;">
+                    The TV industry is experiencing its most significant disruption since the flat-panel transition. 
+                    <strong>Size has trumped quality</strong> as the primary purchase driver. Winners will be those who can 
+                    deliver the largest screens at acceptable quality for the lowest price. The next 24 months will 
+                    determine whether Samsung & LG can defend their premium positioning or if Chinese brands will 
+                    permanently reset the industry's competitive dynamics.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Tab Navigation
+        function showTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-btn');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+            
+            // Trigger animations for the active tab
+            if (tabName === 'market-share') {
+                animateBars();
+            } else if (tabName === 'metrics') {
+                animateCounters();
+            } else if (tabName === 'outlook') {
+                animateTimeline();
+            }
+        }
+        
+        // Slider functionality
+        let currentSlide = 0;
+        function changeSlide(index) {
+            currentSlide = index;
+            const container = document.getElementById('sliderContainer');
+            const dots = document.querySelectorAll('.slide-dot');
+            
+            container.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+        
+        // Auto-advance slider
+        let sliderInterval = setInterval(() => {
+            if (document.getElementById('overview').classList.contains('active')) {
+                currentSlide = (currentSlide + 1) % 3;
+                changeSlide(currentSlide);
+            }
+        }, 5000);
+        
+        // Bar Chart Animation
+        function animateBars() {
+            const bars = document.querySelectorAll('.bar');
+            bars.forEach((bar, index) => {
+                const target = bar.getAttribute('data-target');
+                setTimeout(() => {
+                    bar.style.height = target + '%';
+                }, index * 150);
+            });
+        }
+        
+        // Show bar details
+        function showBarDetails(company) {
+            const details = document.getElementById('barDetails');
+            const title = document.getElementById('detailsTitle');
+            const content = document.getElementById('detailsContent');
+            
+            const data = {
+                hisense: {
+                    title: 'Hisense - The Aggressive Challenger',
+                    content: 'From 14% to 20% market share in just one year. Hisense\'s strategy: flood the market with competitively priced 75"+ MiniLED TVs. Their U8K series offers 85" for under $1,500 - half the price of comparable Samsung models. Strong in sports sponsorships (Euro 2024, World Cup 2026) to build global brand awareness.'
+                },
+                tcl: {
+                    title: 'TCL - The MiniLED Pioneer',
+                    content: 'Growing from 13% to 19% market share. TCL pioneered MiniLED technology in 2019 and has maintained technical leadership. Vertical integration from panel manufacturing to final assembly gives them a 30% cost advantage. Their QM8 series matches OLED black levels at 60% of the price.'
+                },
+                samsung: {
+                    title: 'Samsung - The Premium Defender',
+                    content: 'Market share under pressure but still #1 globally. Caught between premium OLED strategy and MiniLED price competition. Neo QLED (their MiniLED brand) is struggling to justify 40% price premiums. Rumored to be developing a value MiniLED line for 2026 launch.'
+                },
+                lg: {
+                    title: 'LG - The OLED Specialist',
+                    content: 'Facing the toughest challenge as OLED\'s main proponent. Market share declining as OLED loses to "bigger for less" MiniLED proposition. LG Display (panel division) reported first loss in 3 years. Pivoting to gaming and ultra-high-end market segments where OLED still commands premiums.'
+                }
+            };
+            
+            details.style.display = 'block';
+            title.textContent = data[company].title;
+            content.textContent = data[company].content;
+        }
+        
+        // Technology toggle
+        function showTech(tech) {
+            const buttons = document.querySelectorAll('.toggle-btn');
+            const details = document.querySelectorAll('.tech-details');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            details.forEach(detail => detail.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            document.getElementById(tech + '-tech').classList.add('active');
+        }
+        
+        // Metric card toggle
+        function toggleMetric(card) {
+            card.classList.toggle('expanded');
+            
+            // Animate counter if not already animated
+            if (!card.classList.contains('animated')) {
+                const counter = card.querySelector('.counter');
+                if (counter) {
+                    animateCounter(counter);
+                    card.classList.add('animated');
+                }
+            }
+        }
+        
+        // Counter animation
+        function animateCounter(counter) {
+            const target = parseInt(counter.getAttribute('data-target'));
+            const duration = 1500;
+            const step = target / (duration / 16);
+            let current = 0;
+            
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                counter.textContent = Math.floor(current) + '%';
+            }, 16);
+        }
+        
+        // Animate all counters
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter:not(.animated)');
+            counters.forEach((counter, index) => {
+                setTimeout(() => {
+                    animateCounter(counter);
+                    counter.classList.add('animated');
+                }, index * 200);
+            });
+        }
+        
+        // Timeline functionality
+        function toggleTimeline(item, index) {
+            const items = document.querySelectorAll('.timeline-item');
+            item.classList.toggle('expanded');
+            
+            // Update active states
+            items.forEach((el, i) => {
+                el.classList.toggle('active', i <= index);
+            });
+            
+            // Animate progress bar
+            const progress = document.getElementById('timelineProgress');
+            progress.style.height = (index + 1) * 120 + 'px';
+        }
+        
+        // Animate timeline on load
+        function animateTimeline() {
+            const items = document.querySelectorAll('.timeline-item');
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('active');
+                }, index * 300);
+            });
+        }
+        
+        // Initialize animations on page load
+        window.addEventListener('load', () => {
+            // Check if market share tab is visible on load
+            const marketShareTab = document.getElementById('market-share');
+            if (marketShareTab && marketShareTab.classList.contains('active')) {
+                setTimeout(() => {
+                    animateBars();
+                }, 500);
+            }
+        });
+    </script>
+</body>
+</html>
